@@ -42,17 +42,40 @@
 <body>
     <h1 class="heading">Sum of two numbers</h1>
     <div class="app_body">
-        <input type="text" class="textbox" id="inputnum1">
-        <input type="text" class="textbox" id="inputnum2">
+        <input type="text" class="textbox" id="inputnum1" onkeyup="calsum()">
+        <input type="text" class="textbox" id="inputnum2" onkeyup="calsum()">
         <p class="textresult" id="textresult">
             
 
         </p>
-        <button class="cal_btn" onclick="calsum()" type="button">Calculate</button>
+        <div>
+            <button class="cal_btn"  type="button" onclick="reset()">Reset</button>
+        </div>
+       
     </div>
 
     <script>
-        
+        function calsum(){
+            const num1element = document.getElementById("inputnum1")
+            const num2element = document.getElementById("inputnum2")
+
+            const sum = parseInt(num1element.value || 0) + parseInt(num2element.value || 0)
+
+            const resultelement =document.getElementById("textresult")
+            resultelement.innerText = `sum : ${sum}`
+        }
+
+        function reset(){
+            const num1element = document.getElementById("inputnum1")
+            num1element.value=""
+            const num2element = document.getElementById("inputnum2")
+            num2element.value=""
+
+            const resultelement =document.getElementById("textresult")
+            resultelement.innerText=""
+
+
+        }
     </script>
     
 </body>
